@@ -38,7 +38,7 @@
     public string Filtro { get; set; } = "";
     public string Criterio { get; set; } = "";
 
-    public List<Registro> lista { get; set; } = new List<Registro>();
+    public List<Aportes> lista { get; set; } = new List<Aportes>();
     public void Buscar()
     {
         lista = registroBLL.GetList(o => true);
