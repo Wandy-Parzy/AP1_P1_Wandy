@@ -27,7 +27,13 @@
                         </div>
                     </div>
                 </div>
-
+            @*Fecha*@
+            <div class="mb-3">
+                <label>Fecha</label>
+                 <InputDate @bind-Value="aportes.Fecha" class="form-control col-4" />
+                    <div class ="form-control"/>
+                 <ValidationMessage For = "@(() => aportes.Fecha)"/>
+            </div>
                
 
             </div>
