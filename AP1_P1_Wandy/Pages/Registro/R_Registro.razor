@@ -15,9 +15,9 @@
             <div class="form-r ow align-items-center">
                 <div class="col">
                     <div class="mb-3">
-                        <label>RegistroId</label>
+                        <label>AporteId</label>
                         <div class="input-group">
-                            <InputNumber @bind-Value="registro.RegistroId" class="form-control col-4" />
+                            <InputNumber @bind-Value="registro.AportesId" class="form-control col-4" />
                             <div class="input-group-append">
                                 <div class="input-group-append">
                                     <button type="button" class="btn btn-primary input-group-text"
@@ -54,7 +54,7 @@
     {
         if (registroId > 0)
         {
-            this.registro.RegistroId = registroId;
+            this.registro.AportesId = registroId;
             this.Buscar();
 
         }
@@ -83,9 +83,9 @@
 
     private void Buscar()
     {
-        if (registro.RegistroId > 0 )
+        if (registro.AportesId > 0 )
         {
-            var encontrado = registroBLL.Buscar(registro.RegistroId);
+            var encontrado = registroBLL.Buscar(registro.AportesId);
 
             if (encontrado != null)
                 this.registro = encontrado;

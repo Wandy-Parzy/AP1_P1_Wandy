@@ -16,7 +16,7 @@ namespace AP1_P1_Wandy.BLL
 
           public bool Existe(int RegistroId)
           {
-               return _contexto.Registro.Any(o => o.RegistroId == RegistroId);
+               return _contexto.Registro.Any(o => o.AportesId == RegistroId);
           }
 
           private bool Insertar(Registro registro)
@@ -33,7 +33,7 @@ namespace AP1_P1_Wandy.BLL
 
           public bool Guardar(Registro registro)
           {
-               if (!Existe(registro.RegistroId))
+               if (!Existe(registro.AportesId))
                     return this.Insertar(registro);
                else
                     return this.Modificar(registro);
@@ -48,7 +48,7 @@ namespace AP1_P1_Wandy.BLL
           public Registro? Buscar(int registroId)
           {
                return _contexto.Registro
-                       .Where(o => o.RegistroId == registroId)
+                       .Where(o => o.AportesId == registroId)
                        .AsNoTracking()
                        .SingleOrDefault();
           }

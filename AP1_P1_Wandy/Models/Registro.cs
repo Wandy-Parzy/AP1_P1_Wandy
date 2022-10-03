@@ -5,7 +5,7 @@ namespace AP1_P1_Wandy.Models{
     public class Registro{
         
         [Key]
-         public int RegistroId { get; set; } 
+         public int AportesId { get; set; } 
  
     }
 }
