@@ -1,0 +1,47 @@
+ @page "/C_Consulta"
+@inject RegistroBLL registroBLL;
+
+<EditForm Model="lista">
+    <DataAnnotationsValidator />
+
+    <label class="mb-3">Criterio</label>
+    <input type="text" class="form-control" @bind="Criterio">
+
+    <div>
+        <button type="button" @onclick="Buscar">
+            <i>Buscar</i>
+        </button>
+    </div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>RegistroId</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var registro in lista)
+            {
+                <tr>
+                    <td>@registro.RegistroId</td>
+                </tr>
+            }
+
+        </tbody>
+
+    </table>
+</EditForm>
+
+@code
+{
+    public string Filtro { get; set; } = "";
+    public string Criterio { get; set; } = "";
+
+    public List<Registro> lista { get; set; } = new List<Registro>();
+    public void Buscar()
+    {
+        lista = registroBLL.GetList(o => true);
+    }
+
+}

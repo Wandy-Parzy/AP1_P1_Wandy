@@ -1,25 +1,31 @@
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.EntityFrameworkCore;
-using AP1_P1_Wandy.Data;
 using AP1_P1_Wandy.BLL;
 using AP1_P1_Wandy.DAL;
 using Radzen;
 
+
 var builder = WebApplication.CreateBuilder(args);
+
+var ConStr = builder.Configuration.GetConnectionString("ConStr");
+
+builder.Services.AddDbContext<Contexto>(options => 
+options.UseSqlite(ConStr)
+);
+   
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
-builder.Services.AddSingleton<WeatherForecastService>();
+
+builder.Services.AddScoped<NotificationService>();
+
+builder.Services.AddScoped<RegistroBLL>();
+
 
 var app = builder.Build();
 
-var ConStr = builder.Configuration.GetConnectionString("ConStr");
-builder.Services.AddDbContext<Contexto>(con => con.UseSqlite(ConStr)  );
-
-builder.Services.AddScoped<RegistroBLL>();
-builder.Services.AddScoped<NotificationService>();
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
