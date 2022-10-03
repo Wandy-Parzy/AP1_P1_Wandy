@@ -27,6 +27,7 @@
                         </div>
                     </div>
                 </div>
+
             @*Fecha*@
             <div class="mb-3">
                 <label>Fecha</label>
@@ -34,7 +35,27 @@
                     <div class ="form-control"/>
                  <ValidationMessage For = "@(() => aportes.Fecha)"/>
             </div>
-               
+            
+            @*Persona*@
+            <div class="mb-3">
+                <label>Persona</label>
+                <InputText @bind-Value="aportes.Persona" class="form-control col-4" />
+                <ValidationMessage For = "@(() => aportes.Fecha)"/>
+            </div>
+
+            @*Observacion*@
+              <div class="mb-3">
+                <label>Observacion</label>
+                <InputText @bind-Value="aportes.Observacion" class="form-control col-4" />
+                <ValidationMessage For = "@(() => aportes.Observacion)"/>
+            </div>
+
+             @*Monto*@
+             <div class="mb-3">
+                <label>Monto</label>
+                <InputNumber @bind-Value="aportes.Monto" class="form-control col-4" />
+                <ValidationMessage For = "@(() => aportes.Monto)"/>
+            </div>
 
             </div>
             <div class="card-footer">
