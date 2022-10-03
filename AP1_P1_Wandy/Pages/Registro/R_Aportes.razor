@@ -1,5 +1,5 @@
 @page "/R_Aportes"
-@inject RegistroBLL registroBLL
+@inject AportesBLL aportesBLL
 @inject NotificationService NotificationService
 
  <EditForm Model="aportes" OnValidSubmit="Guardar">
@@ -63,7 +63,7 @@
          public void Guardar()
     {
  
-        bool guardado = registroBLL.Guardar(aportes);
+        bool guardado = aportesBLL.Guardar(aportes);
         if (guardado)
         {
             Nuevo();
@@ -85,7 +85,7 @@
     {
         if (aportes.AportesId > 0 )
         {
-            var encontrado = registroBLL.Buscar(aportes.AportesId);
+            var encontrado = aportesBLL.Buscar(aportes.AportesId);
 
             if (encontrado != null)
                 this.aportes = encontrado;
@@ -107,7 +107,7 @@
     {
         bool elimino;
 
-        elimino = registroBLL.Eliminar(aportes);
+        elimino = aportesBLL.Eliminar(aportes);
 
         if (elimino)
         {

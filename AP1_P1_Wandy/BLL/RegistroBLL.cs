@@ -5,11 +5,11 @@ using  AP1_P1_Wandy.Models;
 
 namespace AP1_P1_Wandy.BLL
 {
-       public class RegistroBLL
+       public class AportesBLL
      {
           private Contexto _contexto;
 
-          public RegistroBLL(Contexto contexto)
+          public AportesBLL(Contexto contexto)
           {
                _contexto = contexto;
           }

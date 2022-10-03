@@ -21,7 +21,7 @@ builder.Services.AddServerSideBlazor();
 
 builder.Services.AddScoped<NotificationService>();
 
-builder.Services.AddScoped<RegistroBLL>();
+builder.Services.AddScoped<AportesBLL>();
 
 
 var app = builder.Build();

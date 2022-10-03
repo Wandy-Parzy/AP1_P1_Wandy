@@ -1,5 +1,5 @@
  @page "/C_Consulta"
-@inject RegistroBLL registroBLL;
+@inject AportesBLL aportesBLL;
 
 <EditForm Model="lista">
     <DataAnnotationsValidator />
@@ -41,7 +41,7 @@
     public List<Aportes> lista { get; set; } = new List<Aportes>();
     public void Buscar()
     {
-        lista = registroBLL.GetList(o => true);
+        lista = aportesBLL.GetList(o => true);
     }
 
 }
