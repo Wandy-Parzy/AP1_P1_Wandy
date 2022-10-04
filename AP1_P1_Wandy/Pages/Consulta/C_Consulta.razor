@@ -4,8 +4,23 @@
 <EditForm Model="lista">
     <DataAnnotationsValidator />
 
-    <label class="mb-3">Criterio</label>
-    <input type="text" class="form-control" @bind="Criterio">
+        <div class="card-header">
+            <h3>Registro de Aportes</h3>
+        </div>
+
+ <div class="row">
+        <select class="mb-3" >
+            <option value="0" disabled> Seleccione una opcion</option>
+            <option value="1">PersonaId</option>
+            <option value="2">Persona</option>
+        </select>
+    </div>
+
+    <label class="mb-3">Desde</label>
+    <input type="text" class="form-control" @bind="Desde">
+    
+    <label class="mb-3">Hasta</label>
+    <input type="text" class="form-control" @bind="Hasta">
 
     <div>
         <button type="button" @onclick="Buscar">
@@ -16,27 +31,42 @@
     <table class="table">
         <thead>
             <tr>
-                <th>RegistroId</th>
+                <th>AportesId</th>
+                <th>Persona</th>
+                <th>Monto</th>
+                
                 <th></th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var registro in lista)
+            @foreach (var aportes in lista)
             {
                 <tr>
-                    <td>@registro.AportesId</td>
+                    <td>@aportes.AportesId</td>
+                    <td>@aportes.Persona</td>
+                    <td>@aportes.Monto</td>
                 </tr>
             }
 
         </tbody>
 
     </table>
+
+   
 </EditForm>
 
 @code
 {
     public string Filtro { get; set; } = "";
-    public string Criterio { get; set; } = "";
+     
+    public void Total() {
+        
+        double total;
+    }
+
+     public DateTime Desde { get; set; }=DateTime.Now;
+
+     public DateTime Hasta { get; set; }
 
     public List<Aportes> lista { get; set; } = new List<Aportes>();
     public void Buscar()
