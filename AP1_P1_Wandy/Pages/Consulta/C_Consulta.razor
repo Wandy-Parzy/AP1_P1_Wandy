@@ -5,14 +5,15 @@
     <DataAnnotationsValidator />
 
         <div class="card-header">
-            <h3>Registro de Aportes</h3>
+            <h3>Consulta de aportes</h3>
         </div>
-
+@*Filtro*@
  <div class="row">
         <select class="mb-3" >
+            <input type="text" class="form-control" @bind="Filtro">
             <option value="0" disabled> Seleccione una opcion</option>
-            <option value="1">PersonaId</option>
-            <option value="2">Persona</option>
+            <option value="1">Persona</option>
+            <option value="2">PersonaId</option>
         </select>
     </div>
 
@@ -33,10 +34,11 @@
             <tr>
                 <th>AportesId</th>
                 <th>Persona</th>
-                <th>Monto</th>
+                <th>Monto </th>
                 
                 <th></th>
             </tr>
+          
         </thead>
         <tbody>
             @foreach (var aportes in lista)
@@ -45,6 +47,7 @@
                     <td>@aportes.AportesId</td>
                     <td>@aportes.Persona</td>
                     <td>@aportes.Monto</td>
+                                    
                 </tr>
             }
 
@@ -52,17 +55,14 @@
 
     </table>
 
-   
+    <td>Conteo: @lista.Count()</td>
 </EditForm>
 
 @code
 {
     public string Filtro { get; set; } = "";
      
-    public void Total() {
-        
-        double total;
-    }
+    public double Total {  get; set;}
 
      public DateTime Desde { get; set; }=DateTime.Now;
 
@@ -72,6 +72,7 @@
     public void Buscar()
     {
         lista = aportesBLL.GetList(o => true);
+        
     }
 
 }
